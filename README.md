@@ -27,6 +27,7 @@
 ### Titanic
 
 ### Uber_rider_churn_prediction
+* See [Uber_README.md](Uber_rider_churn_prediction/Uber_README.md) for more details.
 * Apply data cleaning and exploratory data analysis to select the useful features for building models.
 * Load the cleaned data and build different models to see the performances for different models.
 * Use models:
