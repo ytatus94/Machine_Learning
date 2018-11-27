@@ -47,3 +47,4 @@
 * Upstart online assessment
 
 ### Yelp_data_challenge_round_12
+* See [Yelp_README.md](Yelp_data_challenge_round_12/Yelp_README.md) for more details.
