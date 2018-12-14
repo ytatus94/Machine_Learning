@@ -2,6 +2,7 @@
 loan.csv
 glove.6B.*.txt
 glove.6B.zip
+BitTiger_DS501/MNIST_data/*
 
 # Yelp
 yelp_academic_dataset_*.json
@@ -10,3 +11,4 @@ yelp_dataset.tar
 last_2_years_restaurant_reviews.csv
 
 # Music Box
+Music_Box/data/*

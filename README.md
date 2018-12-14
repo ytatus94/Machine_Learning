@@ -57,6 +57,8 @@
 ### Ericsson
 * Ericsson online assessment
 
+### Lending\_club
+
 ### MNIST
 * Use only 5000 records to build models for MNIST
 * Use different models
