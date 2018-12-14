@@ -96,7 +96,7 @@
 
 ### Upstart\_loan\_charge-off\_rate\_prediction
 * Upstart online assessment
-* See [Upstart_READMD.md](Upstart_loan_charge-off_rate_prediction/Upstart_READMD.md) for more detail.
+* See [Upstart_README.md](Upstart_loan_charge-off_rate_prediction/Upstart_README.md) for more detail.
 
 ### VISA
 * VISA online assessment
