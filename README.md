@@ -71,7 +71,14 @@
   * Neural network
 * Use gray scale and black-and-white to build models and check the model performances.
 
-### Music_Box
+### Musicbox
+* See [Musicbox\_README.md](Musicbox/Musicbox_README.md) for more details.
+* Scrap data from online music streaming platform.
+* Analyze three types of log files including users' search, download, and play records from 2017/03/01 to 2017/05/12.
+  * Here is the list of [data](https://bittigermusicplayerdata.s3-us-west-2.amazonaws.com/list.html)
+* Use Spark to analyze user behavior patterns and trends.
+  * Perform feature engineering using PySpark.
+* Use Sci-kit learn and Spark to predict churn rate of users.
 
 ### Reboot\_Box-Plots\_for\_Education
 
