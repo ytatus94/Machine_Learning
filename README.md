@@ -50,9 +50,22 @@
     * Bi-directional LSTM
     * Multiple layers bi-directional LSTM
     * Pretrained embedding FFNN and LSTM 
-* Week13: LSTM (全唐詩)
+* Week13: Sequence-to-sequence text generation using RNN with LSTM cells (全唐詩)
 
 ### Capital\_bikeshare\_rental\_demand
+
+### DS\_and\_ML`
+* 2.3
+* 2.4
+* 2.5
+* 3.2: Perceptron Learning Algorithm
+* 3.3: Logistic Regression
+* 3.4: SVM
+* 3.5: Decision Tree & Random Forest
+* 4.1: Kaggle Titanic
+* 4.2: Kaggle Bike sharing demand
+* 5.1: CNN
+* 5.2: XGBoost
 
 ### Ericsson
 * Ericsson online assessment
