@@ -96,9 +96,6 @@
 * 5.1: CNN
 * 5.2: XGBoost
 
-### Ericsson\_OA
-* Ericsson online assessment
-
 ### Lending\_club
 
 ### MNIST
@@ -122,8 +119,22 @@
   * Perform feature engineering using PySpark.
 * Use Sci-kit learn and Spark to predict churn rate of users.
 
-### Points72\_OA
+### OA\_DeeplearningAI
+* Deeplarning.ai online assessment
+
+### OA\_Ericsson
+* Ericsson online assessment
+* My solutions
+
+### OA\_Points72
 * Screen shot of the online assessment of Points72
+* My solutions
+
+### OA\_VISA
+* VISA online assessment
+
+### OA\_Yelp
+* Yelp online assessment
 * My solutions
 
 ### Reboot\_Box-Plots\_for\_Education
@@ -153,8 +164,6 @@
 * Upstart online assessment
 * See [Upstart_README.md](Upstart_loan_charge-off_rate_prediction/Upstart_README.md) for more detail.
 
-### VISA\_OA
-* VISA online assessment
 
 ### Yelp\_data\_challenge\_round\_12
 * See [Yelp_README.md](Yelp_data_challenge_round_12/Yelp_README.md) for more details.
