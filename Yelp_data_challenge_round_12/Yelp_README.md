@@ -28,10 +28,12 @@
   * Apply the data preprocessing.
   * Load 6.8 GB Yelp data (json format) into Pandas dataframe.
   * Filter data by selecting useful information to reduce data size.
-    * Only select the restaurants in Las Vegas for the analysis.
+    * Only select the **restaurants** in **Las Vegas** for the analysis.
   * Combine business and review data
-    * Only select the data have reviews in the last 2 years to avoid crush when running machine learning algorithms
+    * Only select the data have reviews in the **last 2 years** to avoid crush when running machine learning algorithms
   * Save the preprocessed results into a csv file. 
+    * `selected_business.csv`
+    * `last_2_years_restaurant_reviews.csv`: This file is 260 MB. Because the size is greater than 100 MB (upload limit of GitHub), I didn't upload this file to GitHub.
 * `Yelp_02_clustering_and_PCA.ipynb`
   * Use the preprocessed results from `Yelp_01_data_wrangling.ipynb`
   * Apply clustering model with NLP to the reviews of restaurant.
@@ -43,6 +45,8 @@
 
 
 ## Data preprocessing
+
+* 讀取 json 檔案，只使用 business 和 reviews，把兩者做 inner merge，篩選出在 Las Vegas 的 restaurant，然後存成 csv 檔案。
 
 * The input datasets are in `json` format. There are two ways to load a `json` file into Pandas dataframe.
   * Use `pandas.read_json()`
@@ -87,15 +91,26 @@ restaurants = df_business[~null_categories]['categories'].apply(str).str.contain
 
 ## Clustering
 
+把 reviews 用 Kmeans 做 clustering
+1. 先把 reviews 轉成 tf-idf vector 然後做 clustering
+2. 用 cluster center 來代表該 cluster 整體，找出每個 cluster center 中前十名的單字 (tf-idf 最大的前十個字)
+3. 從每一個 cluster 隨機選出兩個 reviews，看內容跟 star，用肉眼判斷這個 clustering 的結果如何
+
+把擁有最多評論的餐廳挑出來，然後跟上面一樣的事情再做一次
+
+
 Use `last_2_years_restaurant_reviews.csv` from data preprocessing to build a clustering model using reviews and average stars features.
 
-* Use `TfidfVectorizer` with english stop words and 1000 words in vocabulary to get tf-idf matrix of input documents (i.e. reviews). The vectorized tf-idf matries are sparse matries. And convert the sparse matries to Numpy ndarray by calling `.toarray()` method.
+* Use `TfidfVectorizer` with english stop words and 1000 words in vocabulary to get tf-idf matrix of input documents (i.e. reviews). The vectorized tf-idf matries are sparse matries. By calling `.toarray()` method convert the sparse matries to Numpy ndarray.
 
 ```python
 from sklearn.feature_extraction.text import TfidfVectorizer
+# Use english stop words and set the vocabulary to 1000 words
 vectorizer = TfidfVectorizer(stop_words='english', max_features=1000)
+# Vectorized documents to get tf-idf matrix
 vec_trained = vectorizer.fit_transform(X_train)
 vec_documents = vectorizer.transform(documents)
+# Convert sparse matrix to Numpy ndarray
 vec_doc_arr = vec_documents.toarray()
 ```
 
@@ -136,6 +151,8 @@ for i in range(kmeans.n_clusters):
 
 ## Dimension reduction using PCA
 
+* 1000 個單字當 features 仍然太多了，用 PCA 降為變成 50 維，然後比較有沒有使用 standardization 對 model 預測造成多少影響
+
 * Too many features might cause overfitting, so I use PCA to reduce the dimension.
 * Because PCA maximize the variance, I need to standardize features before applying PCA.
   * Vocabulary = 1000 means 1000 features.
@@ -158,6 +175,7 @@ test_components = pca.transform(X_test_scaled)
 * Covariance matrix after PCA ![covariance_matrix](PCA_covariance_matrix.png)
 * Variance explained ![variance_explained](PCA_variance_explained.png)
 * Use **Logistic Regression** to fit
+  * With/Without applying standardization.
 
 |Sample     |Standardized|Standardize + PCA|
 |:---------:|:----------:|:---------------:|
@@ -183,7 +201,12 @@ test_components = pca.transform(X_test_scaled)
 
 ## NLP
 
-Use `last_2_years_restaurant_reviews.csv` from data preprocessing. Use reviews as documents and define a new variable `favorable` as target. The restaurants rated 5 star is favorable otherwise non-favorable.
+* 把 target 設成 5 stars 和不是 5 stars 的。利用 cosine similiarity 建立一個相似的 review 的搜尋引擎，提供一條 test sample 中的 review，會再 training sample 中找出前五個最相似的 review。
+* 用 Naive-Bayes, Logistic Regression, RandomForest classifier 建立模型來區分 positive review 和 negative review。Logistic Regression 中係數越大的，或是 RandomForest 中 feature importance 越大的，表示越是 positive review.
+* 也有使用 cross validation 和 grid search 來看結果並作成 classification report
+
+
+Use `last_2_years_restaurant_reviews.csv` from data preprocessing. Use reviews as documents and define a new variable `five stars` (was called `favorable` in my previous version) as target. The restaurants rated 5 star is favorable otherwise non-favorable.
 
 * Convert the documents to NLP representation using `TfidfVectorizer` and get tf-idf sparse matries with 5000 words in vocabulary.
 * In order to use sci-kit learn to apply machine learning algorithm, the sparse matries need to convert into Numpy ndarray by calling `.toarray()`.
