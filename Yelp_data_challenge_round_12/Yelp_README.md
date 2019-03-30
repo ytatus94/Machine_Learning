@@ -265,3 +265,12 @@ weighted avg       0.84      0.84      0.84    159215
 
 
 ## Recommender system
+
+* Use `business_id`, `user_id`, `stars` to construct utility matrix, the user is `user_id`, item is `business_id`, and rating is `stars`.
+  * In the utility matrix, all missing values are replaced by zero.
+* Use item-item similarity to build recommender. From 100 neighborhoods to predict the rating of a user.
+  * Use the formula
+    \begin{equation*}
+    rating(user, i) = \frac{\sum similarity(i, j) * rating(user, j)}{\sum similarity(i, j)}
+    \end{equation*}
+  * Select top 5 items to recommand ans show the information of the top 5 items (restaurants)
