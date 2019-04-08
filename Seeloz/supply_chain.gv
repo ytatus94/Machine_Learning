@@ -1,0 +1,24 @@
+digraph G {
+	node [shape=box]
+	warehouse
+	warehouse -> "outlet_1
+ 100"
+	warehouse -> "outlet_2
+ 100"
+	warehouse -> "outlet_3
+ 100"
+	warehouse -> "outlet_4
+ 100"
+	warehouse -> "outlet_5
+ 100"
+	warehouse -> "outlet_6
+ 100"
+	warehouse -> "outlet_7
+ 100"
+	warehouse -> "outlet_8
+ 100"
+	warehouse -> "outlet_9
+ 100"
+	warehouse -> "outlet_10
+ 100"
+}
