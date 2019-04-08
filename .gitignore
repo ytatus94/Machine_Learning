@@ -1,3 +1,7 @@
+#
+# Ignore the files which size > 100 MB
+#
+
 # BitTiger
 loan.csv
 glove.6B.*.txt
@@ -12,3 +16,6 @@ last_2_years_restaurant_reviews.csv
 
 # Music Box
 Music_Box/data/*
+
+# European_language_detector
+European_language_detector/data/*
