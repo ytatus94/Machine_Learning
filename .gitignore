@@ -2,6 +2,10 @@
 # Ignore the files which size > 100 MB
 #
 
+# Hidden file 
+.DS_Store
+.ipynb_checkpoints
+
 # BitTiger
 loan.csv
 glove.6B.*.txt
