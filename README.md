@@ -96,6 +96,10 @@
 * 5.1: CNN
 * 5.2: XGBoost
 
+### European\_language\_detector
+
+### Inspire\_HEP
+
 ### Lending\_club
 
 ### MNIST
@@ -109,6 +113,8 @@
   * Naive Bayes
   * Neural network
 * Use gray scale and black-and-white to build models and check the model performances.
+
+### Multi\_class\_text\_classification
 
 ### Musicbox
 * See [Musicbox\_README.md](Musicbox/Musicbox_README.md) for more details.
@@ -137,9 +143,21 @@
 * Yelp online assessment
 * My solutions
 
+### Pima\_Indians\_Diabetes\_Dataset
+
 ### Reboot\_Box-Plots\_for\_Education
 
+### RiskGenius
+
+### Seeloz
+
 ### Sensors_data
+
+### TakeHome\_GA\_data\_science\_challenge\_V4
+
+### TakeHome\_LA\_Care\_Health\_Plan
+
+### TakeHome\_Robinhood\_DataScience\_Challenge
 
 ### Titanic
 
@@ -169,3 +187,7 @@
 * See [Yelp_README.md](Yelp_data_challenge_round_12/Yelp_README.md) for more details.
 * Analysis 6.8 GB Yelp unstructured review text data in json format.
 * 
+
+### fitting
+
+### practice
