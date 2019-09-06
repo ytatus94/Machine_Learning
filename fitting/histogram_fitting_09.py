@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import matplotlib.mlab as mlab
+# import matplotlib.mlab as mlab
+from scipy import stats
 
 arr = np.random.randn(100)
 
@@ -15,5 +16,6 @@ sigma = np.sqrt(variance)
 
 x = np.linspace(min(arr), max(arr), 100)
 
-plt.plot(x, mlab.normpdf(x, mean, sigma))
+# plt.plot(x, mlab.normpdf(x, mean, sigma))
+plt.plot(x, stats.norm.pdf(x, mean, sigma))
 plt.show()

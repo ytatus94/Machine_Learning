@@ -1,8 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
-from scipy.misc import factorial
-
+# from scipy.misc import factorial
+from scipy.special import factorial
 
 # get poisson deviated random numbers
 data = np.random.poisson(2, 1000)
